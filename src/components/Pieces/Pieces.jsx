@@ -43,9 +43,13 @@ function Pieces() {
         chess.isThreefoldRepetition()
       ) {
         dispatch(kingPos({ kingPos: getCoords(_checkedSquare) }));
+        appState.checkAudio.play();
+      } else {
+        appState.moveAudio.play();
       }
     } catch (e) {
       dispatch(invalidMove({ invalidMove: e.message }));
+      if (chess.isCheck()) appState.illegalAudio.play();
       if (square == y + x) return;
       if (appState.status == Status.checkPromotion) {
         let _sq = y + x;

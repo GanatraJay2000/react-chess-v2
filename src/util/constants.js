@@ -23,5 +23,8 @@ export const initialGameState = (fen) => {
     promotionSquare: null,
     status: Status.ongoing,
     selectedPiece: null,
+    moveAudio: new Audio("/assets/sounds/promote.webm"),
+    checkAudio: new Audio("/assets/sounds/move-check.webm"),
+    illegalAudio: new Audio("/assets/sounds/illegal.webm"),
   };
 };
